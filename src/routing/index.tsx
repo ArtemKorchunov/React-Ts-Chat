@@ -1,10 +1,17 @@
 import React, { FunctionComponent } from "react";
 import { Route } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
+import styled from 'styled-components';
 
-import { Home } from "../components";
+import { Home, Login } from "../components";
 
-const routes = [{ path: "/", name: "Home", Component: Home }];
+const Page = styled.div`
+  height: 100%;
+`;
+const routes = [
+  { path: "/", Component: Home },
+  { path: "/login", Component: Login }
+];
 
 const Routes: FunctionComponent<{}> = () => {
   return (
@@ -18,9 +25,9 @@ const Routes: FunctionComponent<{}> = () => {
               classNames="page"
               unmountOnExit
             >
-              <div className="page">
+              <Page>
                 <Component />
-              </div>
+              </Page>
             </CSSTransition>
           )}
         </Route>

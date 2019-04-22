@@ -44,3 +44,6 @@ table {
 a {
   text-decoration: none;
 }
+.ant-layout-sider-trigger {
+  position: initial !important;
+}

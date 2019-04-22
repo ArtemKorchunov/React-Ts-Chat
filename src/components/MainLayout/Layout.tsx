@@ -19,27 +19,26 @@ const Wrapper = styled.div`
 const Section = styled.div`
   width: 100%;
   max-width: ${props => props.theme.maxContentWidth};
+  box-shadow: 6px 8px 20px 0px rgba(13, 34, 64, 0.168);
 `;
 
 const LayoutStyled = styled(Layout)`
   height: 65vh;
   overflow: hidden;
 `
-
-const SiderStyled = styled(Layout.Sider)`
-  overflow-y: auto;
+const ContentStyled = styled(Layout.Content)`
+  background-color: ${props => props.theme.backgrounds.white};
+  padding: ${props => props.theme.paddings.lg};
+  overflow: hidden;
 `;
-
 
 const MainLayout: FunctionComponent<Props> = ({ children }) => {
   return (
     <Wrapper>
       <Section>
         <LayoutStyled>
-          <SiderStyled>
-            <Menu />
-          </SiderStyled>
-          <Layout.Content>{children}</Layout.Content>
+          <Menu />
+          <ContentStyled>{children}</ContentStyled>
         </LayoutStyled>
       </Section>
     </Wrapper>
