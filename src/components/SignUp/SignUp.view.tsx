@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 
-const LoginViewWrap = styled.div`
+const SignUpViewWrap = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -12,12 +12,12 @@ type Props = {
   form: React.ReactNode
 }
 
-const LoginView: React.SFC<Props> = ({ form }) => {
+const SignUpView: React.SFC<Props> = ({ form }) => {
   return (
-    <LoginViewWrap>
+    <SignUpViewWrap>
       {form}
-    </LoginViewWrap>
+    </SignUpViewWrap>
   )
 }
 
-export default LoginView;
+export default SignUpView;

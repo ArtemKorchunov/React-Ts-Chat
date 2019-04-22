@@ -3,14 +3,15 @@ import { Route } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
 import styled from 'styled-components';
 
-import { Home, Login } from "../components";
+import { Home, Login, SignUp } from "../components";
 
 const Page = styled.div`
   height: 100%;
 `;
 const routes = [
   { path: "/", Component: Home },
-  { path: "/login", Component: Login }
+  { path: "/login", Component: Login },
+  { path: "/signup", Component: SignUp }
 ];
 
 const Routes: FunctionComponent<{}> = () => {

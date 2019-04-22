@@ -12,7 +12,7 @@ const CustomInputComponet = ({
   <div
     className={classnames({
       "has-error": touched[field.name] && errors[field.name]
-    })}
+    }, 'ant-row ant-form-item')}
   >
     <Input type="text" {...field} {...props} />
     {touched[field.name] && errors[field.name] && (
