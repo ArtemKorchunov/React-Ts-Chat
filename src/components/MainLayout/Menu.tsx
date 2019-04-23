@@ -6,11 +6,12 @@ import {
   withStateHandlers,
   StateHandlerMap,
   StateHandler,
-  withHandlers
+  withHandlers,
 } from "recompose";
 import { withRouter, RouteComponentProps } from "react-router-dom";
 
 type ExternalProps = {};
+
 
 // withStateHandlers types
 interface StateProps {
@@ -35,31 +36,43 @@ type EnhancedProps = StateProps &
 
 const menuItems = [
   {
-    iconType: 'home',
-    spanText: 'Home',
-    url: '/'
+    iconType: "home",
+    spanText: "Home",
+    url: "/"
   },
   {
     iconType: "login",
     spanText: "Login",
-    url: '/login'
+    url: "/login"
   },
   {
     iconType: "import",
     spanText: "Sign Up",
-    url: '/signup'
+    url: "/signup"
   }
 ];
+
 
 const MainMenu: React.SFC<EnhancedProps> = ({
   collapsed,
   toggleCollapsed,
-  redirectTo
+  redirectTo,
+  location: { pathname }
 }) => {
   return (
-    <Layout.Sider collapsible collapsed={collapsed} onCollapse={toggleCollapsed}>
-      <Menu mode="inline" style={{ height: "100%" }} theme="dark" onClick={redirectTo}>
-        {menuItems.map((menuItem) => (
+    <Layout.Sider
+      collapsible
+      collapsed={collapsed}
+      onCollapse={toggleCollapsed}
+    >
+      <Menu
+        mode="inline"
+        style={{ height: "100%" }}
+        theme="dark"
+        onClick={redirectTo}
+        defaultSelectedKeys={[pathname]}
+      >
+        {menuItems.map(menuItem => (
           <Menu.Item key={menuItem.url}>
             <Icon type={menuItem.iconType} />
             <span>{menuItem.spanText}</span>
@@ -82,5 +95,5 @@ export default compose<EnhancedProps, ExternalProps>(
     redirectTo: ({ history }) => ({ key }) => {
       history.push(key);
     }
-  })
+  }),
 )(MainMenu);
