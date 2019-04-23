@@ -7,12 +7,18 @@ import {
   StateHandlerMap,
   StateHandler,
   withHandlers,
+  mapProps
 } from "recompose";
 import { withRouter, RouteComponentProps } from "react-router-dom";
 
+import { localStorageApi } from "../../../services";
+import { menuItemsPublic, menuItemsPrivate } from "./constants";
+
 type ExternalProps = {};
 
-
+interface MapPropsTypes {
+  menuItems: typeof menuItemsPublic;
+}
 // withStateHandlers types
 interface StateProps {
   collapsed: boolean;
@@ -32,32 +38,15 @@ type EnhancedProps = StateProps &
   StateHandlerProps &
   ExternalProps &
   withHandlersProps &
-  RouteComponentProps;
-
-const menuItems = [
-  {
-    iconType: "home",
-    spanText: "Home",
-    url: "/"
-  },
-  {
-    iconType: "login",
-    spanText: "Login",
-    url: "/login"
-  },
-  {
-    iconType: "import",
-    spanText: "Sign Up",
-    url: "/signup"
-  }
-];
-
+  RouteComponentProps &
+  MapPropsTypes;
 
 const MainMenu: React.SFC<EnhancedProps> = ({
   collapsed,
   toggleCollapsed,
   redirectTo,
-  location: { pathname }
+  location: { pathname },
+  menuItems
 }) => {
   return (
     <Layout.Sider
@@ -84,16 +73,20 @@ const MainMenu: React.SFC<EnhancedProps> = ({
 };
 
 export default compose<EnhancedProps, ExternalProps>(
-  withRouter,
   withStateHandlers<StateProps, StateHandlerProps, ExternalProps>(
     () => ({ collapsed: true }),
     {
       toggleCollapsed: ({ collapsed }) => () => ({ collapsed: !collapsed })
     }
   ),
+  withRouter,
+  mapProps((props: EnhancedProps) => ({
+    menuItems: localStorageApi.hasToken() ? menuItemsPrivate : menuItemsPublic,
+    ...props
+  })),
   withHandlers<RouteComponentProps, withHandlersProps>({
     redirectTo: ({ history }) => ({ key }) => {
       history.push(key);
     }
-  }),
+  })
 )(MainMenu);
