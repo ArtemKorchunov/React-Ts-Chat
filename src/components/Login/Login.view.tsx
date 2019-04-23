@@ -1,12 +1,6 @@
-import React from 'react'
-import styled from 'styled-components';
+import React from 'react';
 
-const LoginViewWrap = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-`;
+import { ContentWrapCenter } from '../Common/Styled';
 
 type Props = {
   form: React.ReactNode
@@ -14,9 +8,9 @@ type Props = {
 
 const LoginView: React.SFC<Props> = ({ form }) => {
   return (
-    <LoginViewWrap>
+    <ContentWrapCenter>
       {form}
-    </LoginViewWrap>
+    </ContentWrapCenter>
   )
 }
 

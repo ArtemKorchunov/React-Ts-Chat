@@ -1,12 +1,6 @@
 import React from 'react'
-import styled from 'styled-components';
 
-const SignUpViewWrap = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-`;
+import { ContentWrapCenter } from '../Common/Styled';
 
 type Props = {
   form: React.ReactNode
@@ -14,9 +8,9 @@ type Props = {
 
 const SignUpView: React.SFC<Props> = ({ form }) => {
   return (
-    <SignUpViewWrap>
+    <ContentWrapCenter>
       {form}
-    </SignUpViewWrap>
+    </ContentWrapCenter>
   )
 }
 
