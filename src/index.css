@@ -51,15 +51,19 @@ a {
 
 .page-enter {
   opacity: 0;
+  margin-top: -1000px;
 }
 .page-enter-active {
   opacity: 1;
-  transition: opacity 200ms;
+  margin-top: 0;
+  transition: opacity 200ms, margin 800ms ease-in-out;
 }
 .page-exit {
   opacity: 1;
+  margin-top: 0;
 }
 .page-exit-active {
   opacity: 0;
-  transition: opacity 200ms;
+  margin-top: 1000px;
+  transition: opacity 200ms, margin 800ms ease-in-out; 
 }
