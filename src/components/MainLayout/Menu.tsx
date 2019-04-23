@@ -8,10 +8,7 @@ import {
   StateHandler,
   withHandlers
 } from "recompose";
-import styled from "styled-components";
 import { withRouter, RouteComponentProps } from "react-router-dom";
-
-const SiderStyled = styled(Layout.Sider)``;
 
 type ExternalProps = {};
 
@@ -60,7 +57,7 @@ const MainMenu: React.SFC<EnhancedProps> = ({
   redirectTo
 }) => {
   return (
-    <SiderStyled collapsible collapsed={collapsed} onCollapse={toggleCollapsed}>
+    <Layout.Sider collapsible collapsed={collapsed} onCollapse={toggleCollapsed}>
       <Menu mode="inline" style={{ height: "100%" }} theme="dark" onClick={redirectTo}>
         {menuItems.map((menuItem) => (
           <Menu.Item key={menuItem.url}>
@@ -69,7 +66,7 @@ const MainMenu: React.SFC<EnhancedProps> = ({
           </Menu.Item>
         ))}
       </Menu>
-    </SiderStyled>
+    </Layout.Sider>
   );
 };
 
@@ -81,7 +78,7 @@ export default compose<EnhancedProps, ExternalProps>(
       toggleCollapsed: ({ collapsed }) => () => ({ collapsed: !collapsed })
     }
   ),
-  withHandlers<ExternalProps & RouteComponentProps, withHandlersProps>({
+  withHandlers<RouteComponentProps, withHandlersProps>({
     redirectTo: ({ history }) => ({ key }) => {
       history.push(key);
     }

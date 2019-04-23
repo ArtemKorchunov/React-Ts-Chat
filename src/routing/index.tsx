@@ -1,15 +1,21 @@
 import React, { FunctionComponent } from "react";
-import { Route } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
 import styled from 'styled-components';
 
 import { Home, Login, SignUp } from "../components";
+import { PrivateRoute, Route } from './PrivateRoute'
 
 const Page = styled.div`
   height: 100%;
 `;
-const routes = [
-  { path: "/", Component: Home },
+
+type RouteItem = {
+  path: string;
+  Component: React.SFC | React.ComponentClass;
+  RouteComponent?: React.SFC;
+}
+const routes: RouteItem[] = [
+  { path: "/", Component: Home, RouteComponent: PrivateRoute },
   { path: "/login", Component: Login },
   { path: "/signup", Component: SignUp }
 ];
@@ -17,8 +23,8 @@ const routes = [
 const Routes: FunctionComponent<{}> = () => {
   return (
     <>
-      {routes.map(({ path, Component }) => (
-        <Route key={path} exact path={path}>
+      {routes.map(({ path, Component, RouteComponent = Route }) => (
+        <RouteComponent key={path} exact path={path}>
           {({ match }) => (
             <CSSTransition
               in={match != null}
@@ -31,7 +37,7 @@ const Routes: FunctionComponent<{}> = () => {
               </Page>
             </CSSTransition>
           )}
-        </Route>
+        </RouteComponent>
       ))}
     </>
   );
