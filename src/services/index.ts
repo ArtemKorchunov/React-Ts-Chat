@@ -1,6 +1,6 @@
-import { isNil, not } from "ramda";
+import { isNil, not } from 'ramda';
 
-export const TOKEN_ID = "tokenId";
+export const TOKEN_ID = 'tokenId';
 
 export const localStorageApi = {
   getItem(key: string) {
@@ -17,5 +17,5 @@ export const localStorageApi = {
   },
   hasToken(): boolean {
     return not(isNil(localStorage[TOKEN_ID]));
-  }
+  },
 };

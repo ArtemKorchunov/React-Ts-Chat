@@ -1,5 +1,5 @@
-import React, { FunctionComponent } from "react";
-import { ThemeProvider } from "styled-components";
+import React, { FunctionComponent } from 'react';
+import { ThemeProvider } from 'styled-components';
 
 const theme = {
   breakpoints: {
@@ -7,24 +7,24 @@ const theme = {
     sm: 576,
     md: 768,
     lg: 992,
-    xl: 1200
+    xl: 1200,
   },
-  maxContentWidth: "1000px",
+  maxContentWidth: '1000px',
   borders: {
-    lightGray: "rgba(34,36,38,.15)"
+    lightGray: 'rgba(34,36,38,.15)',
   },
   backgrounds: {
-    gray: "#f0f2f5",
-    white: "#fff"
+    gray: '#f0f2f5',
+    white: '#fff',
   },
   colors: {
-    blue: "#425cbb"
+    blue: '#425cbb',
   },
   paddings: {
     sm: '5px',
     md: '10px',
-    lg: '20px'
-  }
+    lg: '20px',
+  },
 };
 
 type Props = {

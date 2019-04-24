@@ -1,6 +1,6 @@
-import * as React from "react";
-import { Route as BaseRoute, RouteProps, Redirect } from "react-router";
-import { localStorageApi, TOKEN_ID } from "../services";
+import * as React from 'react';
+import { Route as BaseRoute, RouteProps, Redirect } from 'react-router';
+import { localStorageApi, TOKEN_ID } from '../services';
 
 /* export function withoutRouteProps<P>(
   Component: React.ComponentClass<P> | React.SFC<P>
@@ -26,16 +26,14 @@ export function Route(props: FilteredRouteProps) {
   const { component, ...routeProps } = props;
 
   if (component) {
-    return (
-      <BaseRoute component={component} {...routeProps} />
-    );
+    return <BaseRoute component={component} {...routeProps} />;
   }
 
   return <BaseRoute {...routeProps} />;
 }
 
 export function PrivateRoute(props: PrivateFilteredRouteProps) {
-  const { redirectPage = "/", component, ...routeProps } = props;
+  const { redirectPage = '/', component, ...routeProps } = props;
 
   if (component) {
     return (
