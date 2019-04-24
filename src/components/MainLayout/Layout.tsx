@@ -28,7 +28,6 @@ const LayoutStyled = styled(Layout)`
 `
 const ContentStyled = styled(Layout.Content)`
   background-color: ${props => props.theme.backgrounds.white};
-  padding: ${props => props.theme.paddings.lg};
   overflow: hidden;
 `;
 
