@@ -3,9 +3,10 @@ import { Layout } from 'antd';
 import styled from 'styled-components';
 
 const SiderStyled = styled(Layout.Sider)`
-  background: #fff;
-  max-width: 300px;
-  width: 100%;
+  background: ${props => props.theme.colors.darkBlue};
+  max-width: 220px !important;
+  width: 100% !important;
+  flex-basis: 220px !important;
 `;
 
 const TopMenuWrap = styled.div`
