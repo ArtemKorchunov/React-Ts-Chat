@@ -18,7 +18,9 @@ const theme = {
     white: '#fff',
   },
   colors: {
-    blue: '#425cbb',
+    blue: '#002140',
+    darkBlue: '#001529',
+    lightBlue: '#1890ff',
   },
   paddings: {
     sm: '5px',

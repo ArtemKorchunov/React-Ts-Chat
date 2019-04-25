@@ -1,18 +1,18 @@
-import React from "react";
-import { Menu, Icon, Layout } from "antd";
-import { ClickParam } from "antd/lib/menu";
+import React from 'react';
+import { Menu, Icon, Layout } from 'antd';
+import { ClickParam } from 'antd/lib/menu';
 import {
   compose,
   withStateHandlers,
   StateHandlerMap,
   StateHandler,
   withHandlers,
-  mapProps
-} from "recompose";
-import { withRouter, RouteComponentProps } from "react-router-dom";
+  mapProps,
+} from 'recompose';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
 
-import { localStorageApi } from "../../../services";
-import { menuItemsPublic, menuItemsPrivate } from "./constants";
+import { localStorageApi } from '../../../services';
+import { menuItemsPublic, menuItemsPrivate } from './constants';
 
 type ExternalProps = {};
 
@@ -46,17 +46,19 @@ const MainMenu: React.SFC<EnhancedProps> = ({
   toggleCollapsed,
   redirectTo,
   location: { pathname },
-  menuItems
+  menuItems,
 }) => {
   return (
     <Layout.Sider
+      /*  breakpoint="md"
+      collapsedWidth="0" */
       collapsible
       collapsed={collapsed}
       onCollapse={toggleCollapsed}
     >
       <Menu
         mode="inline"
-        style={{ height: "100%" }}
+        style={{ height: '100%' }}
         theme="dark"
         onClick={redirectTo}
         defaultSelectedKeys={[pathname]}
@@ -76,17 +78,17 @@ export default compose<EnhancedProps, ExternalProps>(
   withStateHandlers<StateProps, StateHandlerProps, ExternalProps>(
     () => ({ collapsed: true }),
     {
-      toggleCollapsed: ({ collapsed }) => () => ({ collapsed: !collapsed })
-    }
+      toggleCollapsed: ({ collapsed }) => () => ({ collapsed: !collapsed }),
+    },
   ),
   withRouter,
   mapProps((props: EnhancedProps) => ({
     menuItems: localStorageApi.hasToken() ? menuItemsPrivate : menuItemsPublic,
-    ...props
+    ...props,
   })),
   withHandlers<RouteComponentProps, withHandlersProps>({
     redirectTo: ({ history }) => ({ key }) => {
       history.push(key);
-    }
-  })
+    },
+  }),
 )(MainMenu);
