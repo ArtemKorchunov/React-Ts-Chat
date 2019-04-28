@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Badge } from 'antd';
+import { DateTime } from 'luxon';
 
 const ChatsListItemWrap = styled.div`
   display: flex;
@@ -11,7 +13,6 @@ const ChatsListItemWrap = styled.div`
     background-color: ${props => props.theme.colors.blue};
   }
 `;
-
 const ChatsIcon = styled.div`
   background-image: ${props => props.src};
   height: 40px;
@@ -31,9 +32,9 @@ const ChatsContent = styled.div`
   flex-direction: column;
   justify-content: space-around;
   padding-left: 10px;
-  font-size: 0.6rem;
+  font-size: 0.7rem;
   height: inherit;
-  width: 100%;
+  width: calc(100% - 95px);
   > div {
     text-overflow: ellipsis;
     overflow: hidden;
@@ -46,17 +47,30 @@ const ChatsContentEnd = styled(ChatsContent)`
   padding-left: 5px;
 `;
 
+const TextPrimary = styled.span`
+  color: ${props => props.theme.colors.lightBlue};
+  padding-right: 5px;
+`;
+// TODO: Change inline styles for Badge component
+
 const ChatsListItem = () => {
   return (
     <ChatsListItemWrap>
       <ChatsIcon>{'E'}</ChatsIcon>
       <ChatsContent>
-        <div>adsada</div>
-        <div>fasdfasd</div>
+        <div>Nikita</div>
+        <div>
+          <TextPrimary>You:</TextPrimary>Heloo dude
+        </div>
       </ChatsContent>
       <ChatsContentEnd>
-        <div>adsada</div>
-        <div>fasdfasd</div>
+        <div>{DateTime.local().monthShort}</div>
+        <div>
+          <Badge
+            count={109}
+            style={{ backgroundColor: '#1890ff', boxShadow: 'initial' }}
+          />
+        </div>
       </ChatsContentEnd>
     </ChatsListItemWrap>
   );
