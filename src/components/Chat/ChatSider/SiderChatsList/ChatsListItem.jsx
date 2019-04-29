@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { Badge } from 'antd';
 import { DateTime } from 'luxon';
 
+import { DblCheckIcon } from '../../Common';
+
 const ChatsListItemWrap = styled.div`
   display: flex;
   padding: 6px;
@@ -30,6 +32,7 @@ const ChatsIcon = styled.div`
 const ChatsContent = styled.div`
   display: flex;
   flex-direction: column;
+  position: relative;
   justify-content: space-around;
   padding-left: 10px;
   font-size: 0.7rem;
@@ -38,6 +41,8 @@ const ChatsContent = styled.div`
   > div {
     text-overflow: ellipsis;
     overflow: hidden;
+    display: flex;
+    align-items: center;
   }
 `;
 
@@ -64,7 +69,10 @@ const ChatsListItem = () => {
         </div>
       </ChatsContent>
       <ChatsContentEnd>
-        <div>{DateTime.local().monthShort}</div>
+        <div>
+          <DblCheckIcon />
+          {DateTime.local().monthShort}
+        </div>
         <div>
           <Badge
             count={109}
