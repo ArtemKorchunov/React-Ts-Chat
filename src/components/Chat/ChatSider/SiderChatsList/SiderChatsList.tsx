@@ -3,15 +3,16 @@ import InfiniteScroll from 'react-infinite-scroller';
 import styled from 'styled-components';
 import ChatListItem from './ChatsListItem';
 
-const ChatsListWrap = styled.div`
+const ChatsListContent = styled.div`
   height: 100%;
   overflow: auto;
 `;
 
+//TODO: change wrap to content, wrap could be only in something.view.tsx component !
 const SiderChatsList = () => {
   const chatsListParentEl = useRef(null);
   return (
-    <ChatsListWrap ref={chatsListParentEl}>
+    <ChatsListContent ref={chatsListParentEl}>
       <InfiniteScroll
         pageStart={0}
         loadMore={() => {}}
@@ -25,7 +26,7 @@ const SiderChatsList = () => {
       >
         <ChatListItem />
       </InfiniteScroll>
-    </ChatsListWrap>
+    </ChatsListContent>
   );
 };
 

@@ -10,13 +10,11 @@ const SearchStyled = styled(Search)`
 
 const SiderTopMenu = () => {
   return (
-    <div>
-      <SearchStyled
-        placeholder="input search text"
-        onSearch={value => console.log(value)}
-      />
-    </div>
+    <SearchStyled
+      placeholder="input search text"
+      onSearch={value => console.log(value)}
+    />
   );
 };
 
-export default SiderTopMenu;
+export default React.memo(SiderTopMenu);

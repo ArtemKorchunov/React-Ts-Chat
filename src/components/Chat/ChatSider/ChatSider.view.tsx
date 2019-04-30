@@ -29,4 +29,4 @@ const ChatSiderView: React.SFC<Props> = ({ topMenu, chatsList }) => {
   );
 };
 
-export default ChatSiderView;
+export default React.memo(ChatSiderView);

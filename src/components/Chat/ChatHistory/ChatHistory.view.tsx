@@ -8,8 +8,6 @@ const HistoryViewWrap = styled.div`
   position: relative;
 `;
 
-const DialogWrap = styled.div``;
-
 const DialogInputWrap = styled.div`
   width: 100%;
   background-color: ${props => props.theme.colors.darkBlue};
@@ -20,14 +18,19 @@ const DialogInputWrap = styled.div`
 
 type Props = {
   topMenu: React.ReactNode;
+  dialog: React.ReactNode;
   dialogInput: React.ReactNode;
 };
 
-const ChatHistoryView: React.SFC<Props> = ({ topMenu, dialogInput }) => {
+const ChatHistoryView: React.SFC<Props> = ({
+  topMenu,
+  dialog,
+  dialogInput,
+}) => {
   return (
     <HistoryViewWrap>
       <TopMenuWrap justify="space-between">{topMenu}</TopMenuWrap>
-      <DialogWrap>dsds</DialogWrap>
+      {dialog}
       <DialogInputWrap>{dialogInput}</DialogInputWrap>
     </HistoryViewWrap>
   );

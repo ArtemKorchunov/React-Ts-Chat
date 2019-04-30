@@ -58,4 +58,4 @@ const ChatsListItem = () => {
   );
 };
 
-export default ChatsListItem;
+export default React.memo(ChatsListItem);
