@@ -19,4 +19,13 @@ export const IconStyled = styled(Icon)<IconProps>`
   font-size: ${props => (props.size ? props.size : props.theme.icons.sm)};
 `;
 
-export { FormStyled } from './Form';
+export const HoverIconStyled = styled(IconStyled)`
+  cursor: pointer;
+  transition: all 0.3s;
+  padding: 6px;
+  &:hover {
+    color: ${props => props.theme.colors.lightBlue};
+  }
+`;
+
+export { FormStyled, TextareaStyled } from './Form';

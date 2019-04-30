@@ -2,21 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { ColumnContent } from '../ChatCommon/Styled';
-import { IconStyled } from '../../Common/Styled';
+import { HoverIconStyled } from '../../Common/Styled';
 import { IconSize } from '../../../providers/ThemeProvider';
 
 const TopMenuContent = styled(ColumnContent)`
   padding: 8px 0;
   max-width: 200px;
-`;
-
-const HoverIconStyled = styled(IconStyled)`
-  cursor: pointer;
-  transition: all 0.3s;
-  padding: 6px;
-  &:hover {
-    color: ${props => props.theme.colors.lightBlue};
-  }
 `;
 
 const TopMenuContentEnd = styled(ColumnContent)`

@@ -4,7 +4,8 @@ import { ThemeProvider } from 'styled-components';
 export enum IconSize {
   sm = '0.7rem',
   md = '1.2rem',
-  lg = '1.8rem',
+  lg = '1.4rem',
+  xl = '1.8rem',
 }
 
 const theme = {

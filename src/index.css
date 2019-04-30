@@ -125,7 +125,9 @@ table {
 a {
   text-decoration: none;
 }
-
+textarea {
+  resize: none !important;
+}
 /*  Transition for routing */
 .page-enter {
   opacity: 0.01;

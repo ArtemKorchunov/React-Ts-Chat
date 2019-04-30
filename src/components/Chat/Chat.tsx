@@ -1,7 +1,7 @@
 import React from 'react';
 
 import ChatSiderView, { SiderTopMenu, SiderChatsList } from './ChatSider';
-import ChatHistoryView, { HistoryTopMenu } from './ChatHistory';
+import ChatHistoryView, { HistoryTopMenu, DialogInput } from './ChatHistory';
 import ChatView from './Chat.view';
 
 const Chat = () => {
@@ -13,7 +13,12 @@ const Chat = () => {
           chatsList={<SiderChatsList />}
         />
       }
-      history={<ChatHistoryView topMenu={<HistoryTopMenu />} />}
+      history={
+        <ChatHistoryView
+          topMenu={<HistoryTopMenu />}
+          dialogInput={<DialogInput />}
+        />
+      }
     />
   );
 };
