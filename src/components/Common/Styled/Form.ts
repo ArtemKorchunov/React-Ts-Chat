@@ -13,4 +13,5 @@ export const TextareaStyled = styled(TextareaAutosize)`
   border: 0;
   padding: 6px;
   width: 100%;
+  outline: none;
 `;

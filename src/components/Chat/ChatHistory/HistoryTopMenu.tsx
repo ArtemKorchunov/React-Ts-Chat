@@ -32,4 +32,4 @@ const HistoryTopMenu = () => {
   );
 };
 
-export default HistoryTopMenu;
+export default React.memo(HistoryTopMenu);

@@ -3,6 +3,14 @@ import styled from 'styled-components';
 
 import { TopMenuWrap } from '../ChatCommon/Styled';
 
+interface DialogContentProps {
+  offset: number;
+}
+
+const DialogWrap = styled.div<DialogContentProps>`
+  height: ${props => `calc(100% - ${props.offset + 52}px)`};
+`;
+
 const HistoryViewWrap = styled.div`
   width: 100%;
   position: relative;
@@ -20,17 +28,19 @@ type Props = {
   topMenu: React.ReactNode;
   dialog: React.ReactNode;
   dialogInput: React.ReactNode;
+  dialogOffset: number;
 };
 
 const ChatHistoryView: React.SFC<Props> = ({
   topMenu,
   dialog,
   dialogInput,
+  dialogOffset,
 }) => {
   return (
     <HistoryViewWrap>
       <TopMenuWrap justify="space-between">{topMenu}</TopMenuWrap>
-      {dialog}
+      <DialogWrap offset={dialogOffset}>{dialog}</DialogWrap>
       <DialogInputWrap>{dialogInput}</DialogInputWrap>
     </HistoryViewWrap>
   );

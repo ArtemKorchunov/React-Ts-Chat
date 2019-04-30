@@ -36,6 +36,7 @@ const TextPrimary = styled.span`
 const badgeStyle = { backgroundColor: '#1890ff', boxShadow: 'initial' };
 
 const ChatsListItem = () => {
+  console.log('ChatsListItem render');
   return (
     <ChatsListItemWrap>
       <ChatsIcon radius={40}>{'E'}</ChatsIcon>

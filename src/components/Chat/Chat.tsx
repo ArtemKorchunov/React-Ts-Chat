@@ -25,8 +25,9 @@ const Chat: React.SFC<Props> = ({ textareaHeight, setTextareaHeight }) => {
       }
       history={
         <ChatHistoryView
+          dialogOffset={textareaHeight}
           topMenu={<HistoryTopMenu />}
-          dialog={<Dialog textareaHeight={textareaHeight} />}
+          dialog={<Dialog />}
           dialogInput={<DialogInput setTextareaHeight={setTextareaHeight} />}
         />
       }

@@ -9,6 +9,7 @@ const SearchStyled = styled(Search)`
 `;
 
 const SiderTopMenu = () => {
+  console.log('SiderTopMenu render');
   return (
     <SearchStyled
       placeholder="input search text"

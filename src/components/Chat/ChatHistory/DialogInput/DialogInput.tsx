@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 
 import { HoverIconStyled, TextareaStyled } from '../../../Common/Styled';
 import { IconSize } from '../../../../providers/ThemeProvider';
@@ -22,4 +21,4 @@ const DialogInput: React.SFC<Props> = ({ setTextareaHeight }) => {
   );
 };
 
-export default DialogInput;
+export default React.memo(DialogInput);
