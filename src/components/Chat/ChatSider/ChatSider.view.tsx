@@ -2,7 +2,7 @@ import React from 'react';
 import { Layout } from 'antd';
 import styled from 'styled-components';
 
-import { TopMenuWrap } from '../Common/Styled';
+import { TopMenuWrap } from '../ChatCommon/Styled';
 
 const SiderStyled = styled(Layout.Sider)`
   background: ${props => props.theme.colors.darkBlue};

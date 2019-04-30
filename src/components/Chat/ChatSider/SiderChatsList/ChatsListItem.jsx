@@ -3,7 +3,8 @@ import styled from 'styled-components';
 import { Badge } from 'antd';
 import { DateTime } from 'luxon';
 
-import { DblCheckIcon } from '../../Common';
+import { DblCheckIcon } from '../../ChatCommon';
+import { ColumnContent, ChatsIcon } from '../../ChatCommon/Styled';
 
 const ChatsListItemWrap = styled.div`
   display: flex;
@@ -15,38 +16,13 @@ const ChatsListItemWrap = styled.div`
     background-color: ${props => props.theme.colors.blue};
   }
 `;
-const ChatsIcon = styled.div`
-  background-image: ${props => props.src};
-  height: 40px;
-  width: 40px;
-  border-radius: 50%;
-  background-color: ${props => props.theme.colors.lightBlue};
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1rem;
-  font-weight: bold;
-  min-width: 40px;
-`;
 
-const ChatsContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  justify-content: space-around;
+const ListItemContent = styled(ColumnContent)`
   padding-left: 10px;
-  font-size: 0.7rem;
-  height: inherit;
   width: calc(100% - 95px);
-  > div {
-    text-overflow: ellipsis;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-  }
 `;
 
-const ChatsContentEnd = styled(ChatsContent)`
+const ListItemContentEnd = styled(ListItemContent)`
   align-items: flex-end;
   width: initial;
   padding-left: 5px;
@@ -56,30 +32,28 @@ const TextPrimary = styled.span`
   color: ${props => props.theme.colors.lightBlue};
   padding-right: 5px;
 `;
-// TODO: Change inline styles for Badge component
+
+const badgeStyle = { backgroundColor: '#1890ff', boxShadow: 'initial' };
 
 const ChatsListItem = () => {
   return (
     <ChatsListItemWrap>
-      <ChatsIcon>{'E'}</ChatsIcon>
-      <ChatsContent>
+      <ChatsIcon radius={40}>{'E'}</ChatsIcon>
+      <ListItemContent>
         <div>Nikita</div>
         <div>
           <TextPrimary>You:</TextPrimary>Heloo dude
         </div>
-      </ChatsContent>
-      <ChatsContentEnd>
+      </ListItemContent>
+      <ListItemContentEnd>
         <div>
           <DblCheckIcon />
           {DateTime.local().monthShort}
         </div>
         <div>
-          <Badge
-            count={109}
-            style={{ backgroundColor: '#1890ff', boxShadow: 'initial' }}
-          />
+          <Badge count={109} style={badgeStyle} />
         </div>
-      </ChatsContentEnd>
+      </ListItemContentEnd>
     </ChatsListItemWrap>
   );
 };

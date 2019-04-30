@@ -1,5 +1,11 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import { ThemeProvider } from 'styled-components';
+
+export enum IconSize {
+  sm = '0.7rem',
+  md = '1.2rem',
+  lg = '1.8rem',
+}
 
 const theme = {
   breakpoints: {
@@ -27,12 +33,14 @@ const theme = {
     md: '10px',
     lg: '20px',
   },
+  icons: IconSize,
 };
 
 type Props = {
   children?: React.ReactChild;
 };
-const Theme: FunctionComponent<Props> = ({ children }) => {
+
+const Theme: React.SFC<Props> = ({ children }) => {
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 };
 

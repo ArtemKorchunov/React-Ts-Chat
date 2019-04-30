@@ -1,20 +1,13 @@
 import React from 'react';
-import { Icon } from 'antd';
 import styled from 'styled-components';
 import * as R from 'ramda';
+
+import { IconStyled } from '../../Common/Styled';
 
 const DblCheckStyledWrap = styled.div`
   position: absolute;
   display: flex;
   left: 0;
-`;
-
-interface IconProps {
-  color?: string;
-}
-
-const IconStyled = styled(Icon)<IconProps>`
-  color: ${props => (props.color ? props.color : '#fff')};
 `;
 
 const SecondIconStyled = styled(IconStyled)`
@@ -41,9 +34,18 @@ type checkValues = {
 const getCheckState = R.cond<any, checkValues>([
   [
     R.equals(CHECK_STATES.REQUEST),
+    R.always({ color: '#fff', isDblCheck: false }),
+  ],
+  [R.equals(CHECK_STATES.SENT), R.always({ color: '#fff', isDblCheck: true })],
+  [
+    R.equals(CHECK_STATES.USER_GOT),
     R.always({ color: 'green', isDblCheck: false }),
   ],
-  [R.T, R.always({ color: 'green', isDblCheck: false })],
+  [
+    R.equals(CHECK_STATES.USER_READ),
+    R.always({ color: 'green', isDblCheck: true }),
+  ],
+  [R.T, R.always({ color: '#fff', isDblCheck: false })],
 ]);
 
 const DblCheckIcon: React.SFC<Props> = ({ checkState }) => {

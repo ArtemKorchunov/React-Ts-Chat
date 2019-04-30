@@ -1,19 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { TopMenuWrap } from '../Common/Styled';
+import { TopMenuWrap } from '../ChatCommon/Styled';
 
 const HistoryViewWrap = styled.div`
   width: 100%;
 `;
 
-const ChatHistoryView: React.SFC<{}> = () => {
+type Props = {
+  topMenu: React.ReactNode;
+};
+
+const ChatHistoryView: React.SFC<Props> = ({ topMenu }) => {
   return (
     <HistoryViewWrap>
-      <TopMenuWrap justify="space-between">
-        <div>dfsaf</div>
-        <div>fasd</div>
-      </TopMenuWrap>
+      <TopMenuWrap justify="space-between">{topMenu}</TopMenuWrap>
     </HistoryViewWrap>
   );
 };
