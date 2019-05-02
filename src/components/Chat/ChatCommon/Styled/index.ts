@@ -12,7 +12,7 @@ export const TopMenuWrap = styled.div<TopMenuWrapProps>`
   display: flex;
   justify-content: ${props => (props.justify ? props.justify : 'center')};
   align-items: center;
-  padding: 0 20px;
+  padding: 0 20px 0 0;
 `;
 
 export const ColumnContent = styled.div`

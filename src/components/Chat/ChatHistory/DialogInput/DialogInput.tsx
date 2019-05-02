@@ -1,21 +1,25 @@
 import React from 'react';
 
 import { HoverIconStyled, TextareaStyled } from '../../../Common/Styled';
+import { EmojiPicker } from '../../ChatCommon';
 import { IconSize } from '../../../../providers/ThemeProvider';
 
 type Props = {
   setTextareaHeight: (count: number) => number;
 };
+
 //TODO: Replace textarea styles with general and for current component
 const DialogInput: React.SFC<Props> = ({ setTextareaHeight }) => {
   return (
     <>
       <HoverIconStyled type="paper-clip" size={IconSize.lg} />
       <TextareaStyled
-        onHeightChange={(height: number) => setTextareaHeight(height)}
+        onHeightChange={height => {
+          setTextareaHeight(height);
+        }}
         maxRows={8}
       />
-      <HoverIconStyled type="smile" size={IconSize.lg} />
+      <EmojiPicker />
       <HoverIconStyled type="right-square" size={IconSize.lg} />
     </>
   );

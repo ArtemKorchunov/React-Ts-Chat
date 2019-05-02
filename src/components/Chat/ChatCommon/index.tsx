@@ -59,3 +59,4 @@ const DblCheckIcon: React.SFC<Props> = ({ checkState }) => {
 };
 
 export { DblCheckIcon };
+export { default as EmojiPicker } from './EmojiPicker/EmojiPicker';

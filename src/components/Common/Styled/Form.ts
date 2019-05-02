@@ -1,5 +1,7 @@
 import styled from 'styled-components';
-import TextareaAutosize from 'react-textarea-autosize';
+import TextareaAutosize, {
+  TextareaAutosizeProps,
+} from 'react-textarea-autosize';
 import { Form } from 'antd';
 
 export const FormStyled = styled(Form)`
@@ -7,7 +9,7 @@ export const FormStyled = styled(Form)`
   max-width: 291px;
 `;
 
-export const TextareaStyled = styled(TextareaAutosize)`
+export const TextareaStyled = styled(TextareaAutosize)<TextareaAutosizeProps>`
   height: 100%;
   background-color: ${props => props.theme.colors.darkBlue};
   border: 0;

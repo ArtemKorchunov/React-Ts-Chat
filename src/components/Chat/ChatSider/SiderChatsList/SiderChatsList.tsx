@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import InfiniteScroll from 'react-infinite-scroller';
 import styled from 'styled-components';
+
 import ChatListItem from './ChatsListItem';
 
 const ChatsListContent = styled.div`

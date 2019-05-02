@@ -1,0 +1,11 @@
+.emoji-icon:hover + .emoji-mart,
+.emoji-mart:hover {
+  display: block !important;
+}
+
+.emoji-mart-bar {
+  display: none;
+}
+.emoji-mart-scroll {
+  height: 140px !important;
+}

@@ -1,8 +1,8 @@
-import React, { FunctionComponent } from "react";
-import { Layout } from "antd";
+import React, { FunctionComponent } from 'react';
+import { Layout } from 'antd';
 
-import Menu from "./Menu";
-import styled from "styled-components";
+import Menu from './Menu';
+import styled from 'styled-components';
 
 type Props = {
   children?: React.ReactChild;
@@ -23,9 +23,9 @@ const Section = styled.div`
 `;
 
 const LayoutStyled = styled(Layout)`
-  height: 65vh;
+  height: 80vh;
   overflow: hidden;
-`
+`;
 const ContentStyled = styled(Layout.Content)`
   background-color: ${props => props.theme.backgrounds.white};
   overflow: hidden;
