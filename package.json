@@ -20,7 +20,7 @@
     "react-infinite-scroller": "^1.2.4",
     "react-router": "^5.0.0",
     "react-router-dom": "^5.0.0",
-    "react-scripts": "^3.0.0",
+    "react-scripts": "^5.0.1",
     "react-spring": "^8.0.19",
     "react-textarea-autosize": "^7.1.0",
     "react-transition-group": "^4.0.0",
